@@ -17,6 +17,21 @@
 | <img src="figs/ComS_GT_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Blur_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Restormer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Stripformer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_HI-Diff_GOPR0410_11_00-000205.png" height=80/> |
 |      <img src="figs/ComS_GT_scene050-6.png" height=80/>      |     <img src="figs/ComS_Blur_scene050-6.png" height=80/>     |  <img src="figs/ComS_Restormer_scene050-6.png" height=80/>   | <img src="figs/ComS_Stripformer_scene050-6.png" height=80/>  |   <img src="figs/ComS_HI-Diff_scene050-6.png" height=80/>    |
 
+## TODO
+
+* [ ] Training
+* [ ] Testing
+
+## Contents
+
+1. Datasets
+1. Models
+1. Training
+1. Testing
+1. [Results](#Results)
+1. [Citation](#Citation)
+1. Acknowledgements
+
 ## Results
 
 We achieved state-of-the-art performance on synthetic and real-world blur dataset. Detailed results can be found in the paper.
