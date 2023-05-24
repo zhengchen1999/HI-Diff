@@ -1,6 +1,6 @@
 # Hierarchical Integration Diffusion Model for Realistic Image Deblurring
 
-Zheng Chen, [Yulun Zhang](http://yulunzhang.com/), Ding Liu, BinXia, [Jinjin Gu](https://www.jasongt.com/), https://shinning0821.github.io/index.html), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/)
+Zheng Chen, [Yulun Zhang](http://yulunzhang.com/), Ding Liu, BinXia, [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/)
 
 ---
 
