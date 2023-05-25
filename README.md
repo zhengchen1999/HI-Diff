@@ -2,7 +2,7 @@
 
 [Zheng Chen](https://scholar.google.com/citations?user=zssRkBAAAAAJ), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [BinXia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", arXiv, 2023
 
-[paper] [[arXiv]](https://arxiv.org/abs/2305.12966.pdf) [supplementary material] [visual results] [pretrained models]
+[paper] [[arXiv]](https://arxiv.org/pdf/2305.12966.pdf) [supplementary material] [visual results] [pretrained models]
 
 ---
 
