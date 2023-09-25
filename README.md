@@ -1,6 +1,6 @@
 # Hierarchical Integration Diffusion Model for Realistic Image Deblurring
 
-[Zheng Chen](https://zhengchen1999.github.io/), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [Bin Xia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", arXiv, 2023
+[Zheng Chen](https://zhengchen1999.github.io/), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [Bin Xia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", NeurIPS, 2023 (Spotlight)
 
 [paper] [[arXiv]](https://arxiv.org/pdf/2305.12966.pdf) [supplementary material] [visual results] [pretrained models]
 
@@ -77,10 +77,10 @@ We achieved state-of-the-art performance on synthetic and real-world blur datase
 If you find the code helpful in your resarch or work, please cite the following paper(s).
 
 ```
-@article{chen2023hierarchical,
+@inproceedings{chen2023hierarchical,
   title={Hierarchical Integration Diffusion Model for Realistic Image Deblurring}, 
   author={Chen, Zheng and Zhang, Yulun and Ding, Liu and Bin, Xia and Gu, Jinjin and Kong, Linghe and Yuan, Xin},
-  journal={arXiv preprint arXiv:2305.12966},
+  booktitle={NeurIPS},
   year={2023}
 }
 ```
