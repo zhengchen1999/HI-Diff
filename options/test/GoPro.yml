@@ -10,8 +10,8 @@ datasets:
   test_1:  # the 1st test dataset
     name: GoPro
     type: PairedImageIRDataset
-    dataroot_gt: datasets/test/target
-    dataroot_lq: datasets/test/input
+    dataroot_gt: datasets/GoPro/test/target
+    dataroot_lq: datasets/GoPro/test/input
     filename_tmpl: '{}'
     io_backend:
       type: disk
