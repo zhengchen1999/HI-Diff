@@ -1,0 +1,129 @@
+# general settings
+name:  test_HI_Diff_GoPro
+model_type: HI_Diff_S2
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 100
+
+# dataset and data loader settings
+datasets:
+  test_1:  # the 1st test dataset
+    name: GoPro
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/Deblurring/test/GoPro/target
+    dataroot_lq: datasets/Deblurring/test/GoPro/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_2:  # the 2st test dataset
+    name: HIDE
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/Deblurring/test/HIDE/target
+    dataroot_lq: datasets/Deblurring/test/HIDE/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_3:  # the 3st test dataset
+    name: RealBlur_J
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/Deblurring/test/RealBlur_J/target
+    dataroot_lq: datasets/Deblurring/test/RealBlur_J/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+  test_4:  # the 4st test dataset
+    name: RealBlur_R
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/Deblurring/test/RealBlur_R/target
+    dataroot_lq: datasets/Deblurring/test/RealBlur_R/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: Transformer
+  inp_channels: 3
+  out_channels: 3
+  dim: 48
+  num_blocks: [3,5,6,6]
+  num_refinement_blocks: 4
+  heads: [1,2,4,8]
+  ffn_expansion_factor: 2.66
+  bias: False
+  LayerNorm_type: WithBias
+  dual_pixel_task: False
+  embed_dim: 64
+  group: 4 # N=4*4
+
+network_le:
+  type: latent_encoder_gelu
+  in_chans: 6
+  embed_dim: 64 # same as above
+  block_num: 6
+  group: 4 # same as above
+  stage: 1
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_le_dm:
+  type: latent_encoder_gelu
+  in_chans: 3
+  embed_dim: 64 # same as above
+  block_num: 6
+  group: 4 # same as above
+  stage: 2
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_d:
+  type: denoising
+  in_channel: 256 # (embed_dim*4)
+  out_channel: 256 # (embed_dim*4)
+  inner_channel: 512
+  block_num: 4
+  group: 4 # same as above
+  patch_expansion: 0.5
+  channel_expansion: 2
+
+diffusion_schedule:
+  apply_ldm: False
+  schedule: linear
+  timesteps: 8
+  linear_start: 0.1 # 1e-6
+  linear_end: 0.99 # 1e-2
+
+# path
+path:
+  pretrain_network_g: experiments/pretrained_models/HI_Diff_GoPro/net_g.pth
+  param_key_g: params
+  strict_load_g: true
+
+  pretrain_network_le_dm: experiments/pretrained_models/HI_Diff_GoPro/net_le_dm.pth
+  param_key_g: params
+  strict_load_le_dm: true
+
+  pretrain_network_d: experiments/pretrained_models/HI_Diff_GoPro/net_d.pth
+  param_key_g: params
+  strict_load_d: true
+
+  resume_state: ~
+    
+# validation settings
+val:
+  save_img: True
+  suffix: ''
+  selfensemble_testing: False
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false

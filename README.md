@@ -4,6 +4,11 @@
 
 [paper] [[arXiv]](https://arxiv.org/pdf/2305.12966.pdf) [supplementary material] [visual results] [pretrained models]
 
+#### 🔥🔥🔥 News
+
+- **2023-05-22:** Code (Testing and Training) and pre-trained models are released 🎉🎉🎉
+- **2023-05-22:** This repo is released.
+
 ---
 
 > **Abstract:** *Diffusion models (DMs) have recently been introduced in image deblurring and exhibited promising performance, particularly in terms of details reconstruction. However, the diffusion model requires a large number of inference iterations to recover the clean image from pure Gaussian noise, which consumes massive computational resources. Moreover, the distribution synthesized by the diffusion model is often misaligned with the target results, leading to restrictions in distortion-based metrics. To address the above issues, we propose the Hierarchical Integration Diffusion Model (HI-Diff), for realistic image deblurring. Specifically, we perform the DM in a highly compacted latent space to generate the prior feature for the deblurring process. The deblurring process is implemented by a regression-based method to obtain better distortion accuracy. Meanwhile, the highly compact latent space ensures the efficiency of the DM. Furthermore, we design the hierarchical integration module to fuse the prior into the regression-based model from multiple scales, enabling better generalization in complex blurry scenarios. Comprehensive experiments on synthetic and real-world blur datasets demonstrate that our HI-Diff outperforms state-of-the-art methods.* 
@@ -19,20 +24,118 @@
 | <img src="figs/ComS_GT_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Blur_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Restormer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Stripformer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_HI-Diff_GOPR0410_11_00-000205.png" height=80/> |
 |      <img src="figs/ComS_GT_scene050-6.png" height=80/>      |     <img src="figs/ComS_Blur_scene050-6.png" height=80/>     |  <img src="figs/ComS_Restormer_scene050-6.png" height=80/>   | <img src="figs/ComS_Stripformer_scene050-6.png" height=80/>  |   <img src="figs/ComS_HI-Diff_scene050-6.png" height=80/>    |
 
-## TODO
-
-* [ ] Training
-* [ ] Testing
-
 ## Contents
 
-1. Datasets
-1. Models
-1. Training
-1. Testing
+1. [Installation](Installation)
+1. [Datasets](Datasets)
+1. [Models](Models)
+1. [Training](Training)
+1. [Testing](Testing)
 1. [Results](#Results)
 1. [Citation](#Citation)
-1. Acknowledgements
+1. [Acknowledgements](Acknowledgements)
+
+## Installation
+
+- Python 3.9
+- PyTorch 1.9.0
+- NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
+
+```bash
+# Clone the github repo and go to the default directory 'HI-Diff'.
+git clone https://github.com/zhengchen1999/HI-Diff.git
+cd HI-Diff
+conda create -n hi_diff python=3.9
+conda activate hi_diff
+pip install -r requirements.txt
+```
+
+## Datasets
+
+| Dataset                            |           Description            |       Link       |
+| ---------------------------------- | :------------------------------: | :--------------: |
+| GoPro                              |        Training + Testing        | [Google Drive]() |
+| RealBlur (RealBlur-R + RealBlur-J) |        Training + Testing        | [Google Drive]() |
+| Test                               | Testing: GoPro + HIDE + RealBlur | [Google Drive]() |
+
+Download training and testing datasets and put them into the corresponding folders of `datasets/`. See [datasets](datasets/README.md) for the detail of the directory structure.
+
+## Models
+
+| Model              | Training Dataset | PSNR (dB) | SSIM  |    Model Zoo     |  Visual Results  |
+| ------------------ | :--------------: | :-------: | :---: | :--------------: | :--------------: |
+| HI-Diff-GoPro      |      GoPro       |   33.33   | 0.964 | [Google Drive]() | [Google Drive]() |
+| HI-Diff-RealBlur-R |    RealBlur-R    |   41.01   | 0.978 | [Google Drive]() | [Google Drive]() |
+| HI-Diff-RealBlur-J |    RealBlur-J    |   33.70   | 0.941 | [Google Drive]() | [Google Drive]() |
+
+The performance is reported on the corresponding testing datasets.
+
+## Training
+
+- Download [GoPro](https://drive.google.com/file/d/1TubDkirxl4qAWelfOnpwaSKoj3KLAIG4/view?usp=share_link) datasets, place them in `datasets/`.
+
+- Generate image patches from GoPro dataset for training.
+
+  ```python
+  python generate_patches_gopro.py 
+  ```
+
+- Run the following scripts. The training configuration is in `options/train/`.
+
+  ```shell
+  # Synthetic, GoPro, 2 Stages, 4 GPUs
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/GoPro_S1.yml --launcher pytorch
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/GoPro_S2.yml --launcher pytorch
+  
+  # Real-World, RealBlur-R, 2 Stages, 4 GPUs
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/RealBlur_R_S1.yml --launcher pytorch
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/RealBlur_R_S2.yml --launcher pytorch
+  
+  # Real-World, RealBlur-J, 2 Stages, 4 GPUs
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/RealBlur_J_S1.yml --launcher pytorch
+  python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/RealBlur_J_S2.yml --launcher pytorch
+  ```
+
+- The training experiment is in `experiments/`.
+
+## Testing
+
+- Download the pre-trained [models](https://drive.google.com/drive/folders/1iBdf_-LVZuz_PAbFtuxSKd_11RL1YKxM?usp=drive_link) and place them in `experiments/pretrained_models/`.
+
+- Download [Test](https://drive.google.com/file/d/1yMbItvFKVaCT93yPWmlP3883XtJ-wSee/view?usp=sharing) (GoPro, HIDE, RealBlur) datasets, place them in `datasets/`.
+
+- Run the following scripts. The testing configuration is in `options/test/`.
+
+  Synthetic, reproduces results in Table 2 of the main paper
+
+  ```python
+  # generate images
+  python test.py -opt options/test/GoPro.yml
+  # test PSNR/SSIM
+  evaluate_gopro_hide.m
+  python evaluate_realblur.py --dataset RealBlur_R --dir results/test_HI_Diff_GoPro
+  python evaluate_realblur.py --dataset RealBlur_J --dir results/test_HI_Diff_GoPro
+  ```
+
+  Real-World, RealBlur-R, reproduces results in Table 3 of the main paper
+
+  ```python
+  # generate images
+  python test.py -opt options/test/RealBlur_R.yml
+  # test PSNR/SSIM
+  python evaluate_realblur.py --dataset RealBlur_R --dir results/test_HI_Diff_RealBlur_R
+  ```
+
+  Real-World, RealBlur-J, reproduces results in Table 3 of the main paper
+
+  ```python
+  # generate images
+  python test.py -opt options/test/RealBlur_J.yml
+  # test PSNR/SSIM
+  python evaluate_realblur.py --dataset RealBlur_J --dir results/test_HI_Diff_RealBlur_J
+  ```
+
+- The output is in `results/`.
 
 ## Results
 
@@ -85,3 +188,6 @@ If you find the code helpful in your resarch or work, please cite the following 
 }
 ```
 
+## Acknowledgements
+
+This code is built on  [BasicSR](https://github.com/XPixelGroup/BasicSR), [Restormer](https://github.com/swz30/Restormer), and [DiffIR](https://github.com/Zj-BinXia/DiffIR).

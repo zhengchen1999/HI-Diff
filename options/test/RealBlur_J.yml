@@ -1,0 +1,97 @@
+# general settings
+name:  test_HI_Diff_RealBlur_J
+model_type: HI_Diff_S2
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 100
+
+# dataset and data loader settings
+datasets:
+  test_1:  # the 3st test dataset
+    name: RealBlur_J
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/Deblurring/test/RealBlur_J/target
+    dataroot_lq: datasets/Deblurring/test/RealBlur_J/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: Transformer
+  inp_channels: 3
+  out_channels: 3
+  dim: 48
+  num_blocks: [3,5,6,6]
+  num_refinement_blocks: 4
+  heads: [1,2,4,8]
+  ffn_expansion_factor: 2
+  bias: False
+  LayerNorm_type: WithBias
+  dual_pixel_task: False
+  embed_dim: 64
+  group: 4 # N=4*4
+
+network_le:
+  type: latent_encoder_lrelu
+  in_chans: 6
+  embed_dim: 64 # same as above
+  block_num: 5 
+  group: 4 # same as above
+  stage: 1
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_le_dm:
+  type: latent_encoder_lrelu
+  in_chans: 3
+  embed_dim: 64 # same as above
+  block_num: 5 
+  group: 4 # same as above
+  stage: 2
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_d:
+  type: simple_denoise
+  n_feats: 64
+  n_denoise_res: 4
+
+diffusion_schedule:
+  apply_ldm: True
+  schedule: linear
+  timesteps: 16
+  linear_start: 0.1
+  linear_end: 0.99
+
+# path
+path:
+  pretrain_network_g: experiments/pretrained_models/HI_Diff_RealBlur_J/net_g.pth
+  param_key_g: params
+  strict_load_g: true
+
+  pretrain_network_le_dm: experiments/pretrained_models/HI_Diff_RealBlur_J/net_le_dm.pth
+  param_key_le_dm: params
+  strict_load_le_dm: true
+
+  pretrain_network_d: experiments/pretrained_models/HI_Diff_RealBlur_J/net_d.pth
+  param_key_d: params
+  strict_load_d: true
+
+  resume_state: ~
+    
+# validation settings
+val:
+  save_img: True
+  suffix: ''
+  selfensemble_testing: False
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false

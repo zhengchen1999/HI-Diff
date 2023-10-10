@@ -1,0 +1,170 @@
+# general settings
+name:  train_HI_Diff_RealBlur_R_S2
+model_type: HI_Diff_S2
+scale: 1
+num_gpu: auto  # set num_gpu: 0 for cpu mode
+manual_seed: 100
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: TrainSet
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/RealBlur/train/RealBlur_R/target
+    dataroot_lq: datasets/RealBlur/train/RealBlur_R/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+    # data loader
+    use_shuffle: true
+    num_worker_per_gpu: 4
+    batch_size_per_gpu: 16
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+    ### -------------Progressive training--------------------------
+    mini_batch_sizes: [16,10,8,4,2,2]             # Batch size per gpu   
+    iters: [20000,20000,20000,20000,20000,200000]
+    gt_size: 384   # Max patch size for progressive training
+    gt_sizes: [128,160,192,256,320,384]  # Patch sizes for progressive training.
+    ### ------------------------------------------------------------
+
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+  val:
+    name: ValSet
+    type: PairedImageIRDataset
+    dataroot_gt: datasets/RealBlur/test/RealBlur_R/target
+    dataroot_lq: datasets/RealBlur/test/RealBlur_R/input
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: Transformer
+  inp_channels: 3
+  out_channels: 3
+  dim: 48
+  num_blocks: [3,5,6,6]
+  num_refinement_blocks: 4
+  heads: [1,2,4,8]
+  ffn_expansion_factor: 2
+  bias: False
+  LayerNorm_type: WithBias
+  dual_pixel_task: False
+  embed_dim: 64
+  group: 4 # N=4*4
+
+network_le:
+  type: latent_encoder_lrelu
+  in_chans: 6
+  embed_dim: 64 # same as above
+  block_num: 5 
+  group: 4 # same as above
+  stage: 1
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_le_dm:
+  type: latent_encoder_lrelu
+  in_chans: 3
+  embed_dim: 64 # same as above
+  block_num: 5 
+  group: 4 # same as above
+  stage: 2
+  patch_expansion: 0.5
+  channel_expansion: 4
+
+network_d:
+  type: simple_denoise
+  n_feats: 64
+  n_denoise_res: 4
+
+diffusion_schedule:
+  apply_ldm: True
+  schedule: linear
+  timesteps: 16
+  linear_start: 0.1
+  linear_end: 0.99
+
+# path
+path:
+  pretrain_network_g: ~
+  param_key_g: params
+  strict_load_g: true
+
+  pretrain_network_le: ~
+  param_key_g: params
+  strict_load_le: true
+
+  pretrain_network_le_dm: ~
+  param_key_g: params
+  strict_load_le_dm: true
+
+  pretrain_network_d: ~
+  param_key_g: params
+  strict_load_d: true
+
+  resume_state: ~
+
+# training settings
+train:
+  total_iter: 300000
+  warmup_iter: -1 # no warm up
+  use_grad_clip: True
+
+  scheduler:
+    type: CosineAnnealingRestartCyclicLR
+    periods: [100000, 200000]       
+    restart_weights: [1,1]
+    eta_mins: [0.0002,0.000001]
+  
+  mixing_augs:
+    mixup: false
+    mixup_beta: 1.2
+    use_identity: true
+
+  optim_total:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.999]
+  
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+  pixel_diff_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 4e3
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 1000
+  save_checkpoint_freq: !!float 4e3
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
