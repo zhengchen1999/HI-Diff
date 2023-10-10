@@ -2,7 +2,7 @@
 
 [Zheng Chen](https://zhengchen1999.github.io/), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [Bin Xia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", NeurIPS, 2023 (Spotlight)
 
-[paper] [[arXiv]](https://arxiv.org/pdf/2305.12966.pdf) [supplementary material] [visual results] [pretrained models]
+[paper] [[arXiv]](https://arxiv.org/pdf/2305.12966.pdf) [[supplementary material](https://github.com/zhengchen1999/HI-Diff/releases)] [[visual results](https://drive.google.com/drive/folders/1ZG89h3kI-cUmNToal01f0wVrd6aKbnyp?usp=drive_link)] [[pretrained models](https://drive.google.com/drive/folders/1X3oos6dmtDDo9IqC6SK5RiujMYE6Y22q?usp=drive_link)]
 
 #### 🔥🔥🔥 News
 
@@ -52,21 +52,21 @@ pip install -r requirements.txt
 
 ## Datasets
 
-| Dataset                            |           Description            |       Link       |
-| ---------------------------------- | :------------------------------: | :--------------: |
-| GoPro                              |        Training + Testing        | [Google Drive]() |
-| RealBlur (RealBlur-R + RealBlur-J) |        Training + Testing        | [Google Drive]() |
-| Test                               | Testing: GoPro + HIDE + RealBlur | [Google Drive]() |
+| Dataset                            |           Description            |                             Link                             |
+| ---------------------------------- | :------------------------------: | :----------------------------------------------------------: |
+| GoPro                              |        Training + Testing        |                       [Google Drive]()                       |
+| RealBlur (RealBlur-R + RealBlur-J) |        Training + Testing        | [Google Drive](https://drive.google.com/file/d/1lSHA9AVzPzoUY3iGwgT299EzEUZUfKkM/view?usp=drive_link) |
+| Test                               | Testing: GoPro + HIDE + RealBlur | [Google Drive](https://drive.google.com/file/d/1pUFsJQleqCGTeeHnsSukJU0oSbjjWIJP/view?usp=drive_link) |
 
 Download training and testing datasets and put them into the corresponding folders of `datasets/`. See [datasets](datasets/README.md) for the detail of the directory structure.
 
 ## Models
 
-| Model              | Training Dataset | PSNR (dB) | SSIM  |    Model Zoo     |  Visual Results  |
-| ------------------ | :--------------: | :-------: | :---: | :--------------: | :--------------: |
-| HI-Diff-GoPro      |      GoPro       |   33.33   | 0.964 | [Google Drive]() | [Google Drive]() |
-| HI-Diff-RealBlur-R |    RealBlur-R    |   41.01   | 0.978 | [Google Drive]() | [Google Drive]() |
-| HI-Diff-RealBlur-J |    RealBlur-J    |   33.70   | 0.941 | [Google Drive]() | [Google Drive]() |
+| Model              | Training Dataset | PSNR (dB) | SSIM  |                          Model Zoo                           |                        Visual Results                        |
+| ------------------ | :--------------: | :-------: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| HI-Diff-GoPro      |      GoPro       |   33.33   | 0.964 | [Google Drive](https://drive.google.com/file/d/1cx0vCV5Z5fklnbqonZQad37vt4armEbT/view?usp=drive_link) | [Google Drive](https://drive.google.com/file/d/1cx0vCV5Z5fklnbqonZQad37vt4armEbT/view?usp=drive_link) |
+| HI-Diff-RealBlur-R |    RealBlur-R    |   41.01   | 0.978 |                       [Google Drive]()                       | [Google Drive](https://drive.google.com/file/d/1inQwZ6SJIHYyZoQo702Mv4upjvgg3kFA/view?usp=drive_link) |
+| HI-Diff-RealBlur-J |    RealBlur-J    |   33.70   | 0.941 |                       [Google Drive]()                       | [Google Drive](https://drive.google.com/file/d/1zdAOurzjAONRmLuPmSi0nppyqT2ORIRg/view?usp=drive_link) |
 
 The performance is reported on the corresponding testing datasets.
 
