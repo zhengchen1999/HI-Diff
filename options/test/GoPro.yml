@@ -10,8 +10,8 @@ datasets:
   test_1:  # the 1st test dataset
     name: GoPro
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/test/GoPro/target
-    dataroot_lq: datasets/Deblurring/test/GoPro/input
+    dataroot_gt: datasets/test/target
+    dataroot_lq: datasets/test/input
     filename_tmpl: '{}'
     io_backend:
       type: disk
@@ -19,8 +19,8 @@ datasets:
   test_2:  # the 2st test dataset
     name: HIDE
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/test/HIDE/target
-    dataroot_lq: datasets/Deblurring/test/HIDE/input
+    dataroot_gt: datasets/test/HIDE/target
+    dataroot_lq: datasets/test/HIDE/input
     filename_tmpl: '{}'
     io_backend:
       type: disk
@@ -28,8 +28,8 @@ datasets:
   test_3:  # the 3st test dataset
     name: RealBlur_J
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/test/RealBlur_J/target
-    dataroot_lq: datasets/Deblurring/test/RealBlur_J/input
+    dataroot_gt: datasets/test/RealBlur_J/target
+    dataroot_lq: datasets/test/RealBlur_J/input
     filename_tmpl: '{}'
     io_backend:
       type: disk
@@ -37,8 +37,8 @@ datasets:
   test_4:  # the 4st test dataset
     name: RealBlur_R
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/test/RealBlur_R/target
-    dataroot_lq: datasets/Deblurring/test/RealBlur_R/input
+    dataroot_gt: datasets/test/RealBlur_R/target
+    dataroot_lq: datasets/test/RealBlur_R/input
     filename_tmpl: '{}'
     io_backend:
       type: disk

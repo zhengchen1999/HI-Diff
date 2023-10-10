@@ -10,8 +10,8 @@ datasets:
   test_1:  # the 4st test dataset
     name: RealBlur_R
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/test/RealBlur_R/target
-    dataroot_lq: datasets/Deblurring/test/RealBlur_R/input
+    dataroot_gt: datasets/test/RealBlur_R/target
+    dataroot_lq: datasets/test/RealBlur_R/input
     filename_tmpl: '{}'
     io_backend:
       type: disk

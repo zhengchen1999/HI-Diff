@@ -10,8 +10,8 @@ datasets:
   train:
     name: TrainSet
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/crop/train/target_crops
-    dataroot_lq: datasets/Deblurring/crop/train/input_crops
+    dataroot_gt: datasets/GoPro/crop/train/target_crops
+    dataroot_lq: datasets/GoPro/crop/train/input_crops
     filename_tmpl: '{}'
     io_backend:
       type: disk
@@ -36,8 +36,8 @@ datasets:
   val:
     name: ValSet
     type: PairedImageIRDataset
-    dataroot_gt: datasets/Deblurring/crop/val/target_crops
-    dataroot_lq: datasets/Deblurring/crop/val/input_crops
+    dataroot_gt: datasets/GoPro/crop/val/target_crops
+    dataroot_lq: datasets/GoPro/crop/val/input_crops
     filename_tmpl: '{}'
     io_backend:
       type: disk

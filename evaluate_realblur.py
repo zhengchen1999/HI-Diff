@@ -99,7 +99,7 @@ args = parser.parse_args()
 
 file_path = os.path.join(args.dir, 'visualization', args.dataset)
 print(file_path)
-gt_path = os.path.join('datasets', 'Deblurring', 'test', args.dataset, 'target')
+gt_path = os.path.join('datasets', 'test', args.dataset, 'target')
 path_list = natsorted(glob(os.path.join(file_path, '*.png')) + glob(os.path.join(file_path, '*.jpg')))
 gt_list = natsorted(glob(os.path.join(gt_path, '*.png')) + glob(os.path.join(gt_path, '*.jpg')))
 assert len(path_list) != 0, "Predicted files not found"

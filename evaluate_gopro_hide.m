@@ -13,7 +13,7 @@ parpool('local',10);
 
 for idx_set = 1:num_set
     file_path = strcat('results/test_HI_Diff_GoPro/visualization/', datasets{idx_set}, '/');
-    gt_path = strcat('datasets/Deblurring/test/', datasets{idx_set}, '/target/');
+    gt_path = strcat('datasets/test/', datasets{idx_set}, '/target/');
     path_list = [dir(strcat(file_path,'*.jpg')); dir(strcat(file_path,'*.png'))];
     gt_list = [dir(strcat(gt_path,'*.jpg')); dir(strcat(gt_path,'*.png'))];
     img_num = length(path_list);
