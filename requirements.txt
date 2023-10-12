@@ -9,6 +9,8 @@ requests
 scikit-image
 scipy
 tb-nightly
+torch==1.9
+torchvision
 tqdm
 yapf
 timm 
