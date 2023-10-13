@@ -64,9 +64,9 @@ Download training and testing datasets and put them into the corresponding folde
 
 | Model              | Training Dataset | PSNR (dB) | SSIM  |                          Model Zoo                           |                        Visual Results                        |
 | ------------------ | :--------------: | :-------: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| HI-Diff-GoPro      |      GoPro       |   33.33   | 0.964 | [Google Drive](https://drive.google.com/file/d/1cx0vCV5Z5fklnbqonZQad37vt4armEbT/view?usp=drive_link) | [Google Drive](https://drive.google.com/file/d/1cx0vCV5Z5fklnbqonZQad37vt4armEbT/view?usp=drive_link) |
-| HI-Diff-RealBlur-R |    RealBlur-R    |   41.01   | 0.978 |                       [Google Drive]()                       | [Google Drive](https://drive.google.com/file/d/1inQwZ6SJIHYyZoQo702Mv4upjvgg3kFA/view?usp=drive_link) |
-| HI-Diff-RealBlur-J |    RealBlur-J    |   33.70   | 0.941 |                       [Google Drive]()                       | [Google Drive](https://drive.google.com/file/d/1zdAOurzjAONRmLuPmSi0nppyqT2ORIRg/view?usp=drive_link) |
+| HI-Diff-GoPro      |      GoPro       |   33.33   | 0.964 | [Google Drive](https://drive.google.com/file/d/1cx0vCV5Z5fklnbqonZQad37vt4armEbT/view?usp=drive_link) | [Google Drive](https://drive.google.com/file/d/1cKDG_H4pJafd5RFO0jLlN_BHmBl6a7Ov/view?usp=drive_link) |
+| HI-Diff-RealBlur-R |    RealBlur-R    |   41.01   | 0.978 | [Google Drive](https://drive.google.com/file/d/1inQwZ6SJIHYyZoQo702Mv4upjvgg3kFA/view?usp=drive_link) | [Google Drive](https://drive.google.com/file/d/1F0RXsVaqo08dr0QJBnuXYa7fHCwFe-Ek/view?usp=drive_link) |
+| HI-Diff-RealBlur-J |    RealBlur-J    |   33.70   | 0.941 | [Google Drive](https://drive.google.com/file/d/1zdAOurzjAONRmLuPmSi0nppyqT2ORIRg/view?usp=drive_link) | [Google Drive](https://drive.google.com/file/d/1kuqgNuiX5rnsEFWUg1EKb7yhgWYI5ab_/view?usp=drive_link) |
 
 The performance is reported on the corresponding testing datasets.
 
