@@ -14,7 +14,7 @@
 > **Abstract:** *Diffusion models (DMs) have recently been introduced in image deblurring and exhibited promising performance, particularly in terms of details reconstruction. However, the diffusion model requires a large number of inference iterations to recover the clean image from pure Gaussian noise, which consumes massive computational resources. Moreover, the distribution synthesized by the diffusion model is often misaligned with the target results, leading to restrictions in distortion-based metrics. To address the above issues, we propose the Hierarchical Integration Diffusion Model (HI-Diff), for realistic image deblurring. Specifically, we perform the DM in a highly compacted latent space to generate the prior feature for the deblurring process. The deblurring process is implemented by a regression-based method to obtain better distortion accuracy. Meanwhile, the highly compact latent space ensures the efficiency of the DM. Furthermore, we design the hierarchical integration module to fuse the prior into the regression-based model from multiple scales, enabling better generalization in complex blurry scenarios. Comprehensive experiments on synthetic and real-world blur datasets demonstrate that our HI-Diff outperforms state-of-the-art methods.* 
 >
 > <p align="center">
-> <img width="800" src="https://live.staticflickr.com/65535/53260047070_448dd89077_o.png">
+> <img width="800" src="figs/HI-Diff.jpg">
 > </p>
 
 ---
@@ -23,6 +23,8 @@
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="figs/ComS_GT_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Blur_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Restormer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_Stripformer_GOPR0410_11_00-000205.png" height=80/> | <img src="figs/ComS_HI-Diff_GOPR0410_11_00-000205.png" height=80/> |
 |      <img src="figs/ComS_GT_scene050-6.png" height=80/>      |     <img src="figs/ComS_Blur_scene050-6.png" height=80/>     |  <img src="figs/ComS_Restormer_scene050-6.png" height=80/>   | <img src="figs/ComS_Stripformer_scene050-6.png" height=80/>  |   <img src="figs/ComS_HI-Diff_scene050-6.png" height=80/>    |
+
+![](https://live.staticflickr.com/65535/53260047070_448dd89077_o.png)
 
 ## Contents
 
