@@ -7,7 +7,7 @@
 #### 🔥🔥🔥 News
 
 - **2023-10-10:** Code (Testing and Training) and pre-trained models are released.
-- **2023-05-22:** HI-Diff is accepted at NeurIPS 2023 as a spotlight. 🎉🎉🎉
+- **2023-09-22:** HI-Diff is accepted at NeurIPS 2023 as a spotlight. 🎉🎉🎉
 - **2023-05-22:** This repo is released.
 
 ---
