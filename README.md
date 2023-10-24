@@ -1,6 +1,6 @@
 # Hierarchical Integration Diffusion Model for Realistic Image Deblurring
 
-[Zheng Chen](https://zhengchen1999.github.io/), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [Bin Xia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://xygroup6.github.io/xygroup/), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", NeurIPS, 2023 (Spotlight)
+[Zheng Chen](https://zhengchen1999.github.io/), [Yulun Zhang](http://yulunzhang.com/), [Ding Liu](https://scholar.google.com/citations?user=PGtHUI0AAAAJ&hl=en), [Bin Xia](https://scholar.google.com/citations?user=rh2fID8AAAAJ), [Jinjin Gu](https://www.jasongt.com/), [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), and [Xin Yuan](https://en.westlake.edu.cn/faculty/xin-yuan.html), "Hierarchical Integration Diffusion Model for Realistic Image Deblurring", NeurIPS, 2023 (Spotlight)
 
 [paper] [[arXiv](https://arxiv.org/pdf/2305.12966.pdf)] [[supplementary material](https://github.com/zhengchen1999/HI-Diff/releases)] [[visual results](https://drive.google.com/drive/folders/1ZG89h3kI-cUmNToal01f0wVrd6aKbnyp?usp=drive_link)] [[pretrained models](https://drive.google.com/drive/folders/1X3oos6dmtDDo9IqC6SK5RiujMYE6Y22q?usp=drive_link)]
 
