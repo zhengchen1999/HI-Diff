@@ -141,7 +141,7 @@ The performance is reported on the corresponding testing datasets.
 We achieved state-of-the-art performance on synthetic and real-world blur dataset. Detailed results can be found in the paper.
 
 <details>
-<summary>Evaluation on Synthetic Datasets (click to expan)</summary>
+<summary>Evaluation on Synthetic Datasets (click to expand)</summary>
 
 - quantitative comparisons in Table 2 of the main paper
 
@@ -157,7 +157,8 @@ We achieved state-of-the-art performance on synthetic and real-world blur datase
 </details>
 
 <details>
-<summary>Evaluation on Real-World Datasets (click to expan)</summary>
+<summary>Evaluation on Real-World Datasets (click to expand)</summary>
+
 
 - quantitative comparisons in Table 3 of the main paper
 
