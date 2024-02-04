@@ -71,7 +71,7 @@ The performance is reported on the corresponding testing datasets.
 
 ## Training
 
-- Download [GoPro](https://drive.google.com/file/d/1TubDkirxl4qAWelfOnpwaSKoj3KLAIG4/view?usp=share_link) datasets, place them in `datasets/`.
+- Download [GoPro](https://drive.google.com/file/d/1KYmgaQj0LWSCL6ygtXcuBZ6DfJgO09RQ/view?usp=drive_link) and [RealBlur](https://drive.google.com/file/d/1lSHA9AVzPzoUY3iGwgT299EzEUZUfKkM/view?usp=drive_link) datasets, place them in `datasets/`.
 
 - Generate image patches from GoPro dataset for training.
 
@@ -101,7 +101,7 @@ The performance is reported on the corresponding testing datasets.
 
 - Download the pre-trained [models](https://drive.google.com/drive/folders/1X3oos6dmtDDo9IqC6SK5RiujMYE6Y22q?usp=drive_link) and place them in `experiments/pretrained_models/`.
 
-- Download [Test](https://drive.google.com/drive/folders/1On-40rUdilgnbMnJmHEp17-L6dd7a04S?usp=drive_link) (GoPro, HIDE, RealBlur) datasets, place them in `datasets/`.
+- Download [test](https://drive.google.com/file/d/1pUFsJQleqCGTeeHnsSukJU0oSbjjWIJP/view?usp=drive_link) (GoPro, HIDE, RealBlur) datasets, place them in `datasets/`.
 
 - Run the following scripts. The testing configuration is in `options/test/`.
 
