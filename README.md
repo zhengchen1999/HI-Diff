@@ -99,9 +99,9 @@ The performance is reported on the corresponding testing datasets.
 
 ## Testing
 
-- Download the pre-trained [models](https://drive.google.com/drive/folders/1iBdf_-LVZuz_PAbFtuxSKd_11RL1YKxM?usp=drive_link) and place them in `experiments/pretrained_models/`.
+- Download the pre-trained [models](https://drive.google.com/drive/folders/1X3oos6dmtDDo9IqC6SK5RiujMYE6Y22q?usp=drive_link) and place them in `experiments/pretrained_models/`.
 
-- Download [Test](https://drive.google.com/file/d/1yMbItvFKVaCT93yPWmlP3883XtJ-wSee/view?usp=sharing) (GoPro, HIDE, RealBlur) datasets, place them in `datasets/`.
+- Download [Test](https://drive.google.com/drive/folders/1On-40rUdilgnbMnJmHEp17-L6dd7a04S?usp=drive_link) (GoPro, HIDE, RealBlur) datasets, place them in `datasets/`.
 
 - Run the following scripts. The testing configuration is in `options/test/`.
 
