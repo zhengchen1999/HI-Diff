@@ -68,28 +68,6 @@ network_le:
   patch_expansion: 0.5
   channel_expansion: 4
 
-network_le_dm:
-  type: latent_encoder_lrelu
-  in_chans: 3
-  embed_dim: 64 # same as above
-  block_num: 5 
-  group: 4 # same as above
-  stage: 2
-  patch_expansion: 0.5
-  channel_expansion: 4
-
-network_d:
-  type: simple_denoise
-  n_feats: 64
-  n_denoise_res: 4
-
-diffusion_schedule:
-  apply_ldm: True
-  schedule: linear
-  timesteps: 16
-  linear_start: 0.1
-  linear_end: 0.99
-
 # path
 path:
   pretrain_network_g: ~
