@@ -81,6 +81,8 @@ The performance is reported on the corresponding testing datasets.
 
 - Run the following scripts. The training configuration is in `options/train/`.
 
+  Stage-1 (S1) [pre-trained models](https://drive.google.com/file/d/1g4aKgt_eMqGcIKqj-NiFLR80tY510KZr/view?usp=drive_link) on GoPro are provided. The stage-2 (S2) can be trained directly.
+
   ```shell
   # Synthetic, GoPro, 2 Stages, 4 GPUs
   python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 train.py -opt options/train/GoPro_S1.yml --launcher pytorch
