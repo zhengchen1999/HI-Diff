@@ -13,7 +13,6 @@ from tqdm import tqdm
 from pdb import set_trace as stx
 from joblib import Parallel, delayed
 import multiprocessing
-from data.hdfs import copy, mkdir
 import subprocess
 
 def train_files(file_):
