@@ -178,7 +178,7 @@ We achieve state-of-the-art performance on synthetic and real-world blur dataset
 
 ## Citation
 
-If you find the code helpful in your resarch or work, please cite the following paper(s).
+If you find the code helpful in your research or work, please cite the following paper(s).
 
 ```
 @inproceedings{chen2023hierarchical,
