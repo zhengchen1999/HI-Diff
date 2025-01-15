@@ -32,7 +32,7 @@
 1. [Testing](#Testing)
 1. [Results](#Results)
 1. [Citation](#Citation)
-1. [Acknowledgements](Acknowledgements)
+1. [Acknowledgements](#Acknowledgements)
 
 ## Installation
 
